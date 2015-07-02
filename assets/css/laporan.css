@@ -1,0 +1,15 @@
+input, select {
+  background:transparent url('/assets/images/bginputform.jpg') repeat scroll 0 0;
+  border:1px solid #626469;
+  margin-bottom:5px;
+  padding:2px;
+}
+button { cursor:pointer; }
+
+.tporsi {
+    text-align:center;
+    font-weight:bold;
+}
+
+
+/*--------------------------------------------------------------*/

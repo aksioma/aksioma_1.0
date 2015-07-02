@@ -1,0 +1,138 @@
+body {
+ margin:0;
+ background: #666;
+ font-size: 12px;
+}
+#wrap-top {
+  width:100%;
+  height:155px;
+  margin:0;
+  background: url('/assets/images/background_top.jpg') repeat-x;
+  background-position: bottom;
+}
+#wrap-content {
+  width:96%;
+  margin:0 auto;
+  background: #000;
+  border-bottom:2px dotted #fff;
+}
+#hide {
+  position: absolute;
+  top: 125px;
+  left:860px;
+  cursor:pointer;
+}
+#dtheme {
+  position: relative;
+  top: 5px;
+  left:650px;
+  width:310px;
+  cursor:pointer;
+}
+
+#banner {
+  margin:0;
+  background: url("/assets/images/top_banner.jpg") no-repeat;
+  width:985px;
+  height:155px;
+}
+
+button { cursor:pointer; }
+
+h5,h4 {
+  border-bottom:1px solid #AAA;
+  color:#626469;
+  float:left;
+  margin:0 0 6px;
+  padding:0 0 3px 2px;
+  width:120px;
+}
+input {
+  background:transparent url('/assets/images/bginputform.jpg') repeat scroll 0 0;
+  border:1px solid #626469;
+  margin-bottom:5px;
+  padding:2px;
+}
+
+hr.cleaner {
+	clear:both;
+	height:1px;
+	margin: -1px 0 0 0; padding:0;
+	border:none;
+	/*visibility: hidden;*/
+}
+.orderan td {
+  line-height: 30px;
+  height:30px;
+}
+
+#tab-room div, #tab-pelayan div {
+  height:40px;
+  line-height:40px;
+  width: 120px;
+  cursor: pointer;
+}
+
+#dialog-carimeja div, #dialog-cariplyn div {
+  height:40px;
+  line-height:40px;
+  width: 80px;
+  cursor: pointer;
+}
+
+#tab-karaoke td div,#tab-makanan td div,#tab-minuman td div,#tab-nonfood td div {
+  width:104px;
+  cursor:pointer;
+  padding-top:2px;
+}
+tr.odd_row {
+	background-color:#F4F3EB;
+	cursor:pointer;
+	}
+	
+tr.odd_row:hover {
+	background-color:#DDDDDD;
+	cursor:pointer;
+	}
+tr.even_row{
+	background-color:#ffffff;
+	cursor:pointer;
+	}
+
+tr.even_row:hover {
+	background-color:#DDDDDD;
+	cursor:pointer;
+	}
+	
+.hid {
+  visibility: hidden;
+}
+#dialog-orderan  option {
+  padding:0.6em;
+}
+#dialog-orderan button,#dialog-batal button {
+  padding:5px;
+  margin: 0 5px 0 5px;
+  width: 45px;
+  cursor: pointer;
+}
+#qty,#qtybtl {
+  width:50px;
+  height:30px;
+  font-size:1.4em;
+  text-align:center;
+}
+#doc,#saji {
+  width:200px;
+  height:30px;
+  font-size:1.4em;
+  display:block;
+}
+#wrap-order {
+  margin-top:10px;
+  background:#E2E2E2;
+  color: #000;
+}
+
+
+/*--------------------------------------------------------------*/

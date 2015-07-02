@@ -1,0 +1,30 @@
+body {
+ margin:0;
+ font-size: 12px;
+ overflow:hidden;
+}
+#wrap-top {
+  width:100%;
+  margin:0;
+  background: #000;
+  border-bottom: 2px solid #F5D649;
+}
+
+#banner {
+  margin:0;
+  background: url("/assets/images/top_admin.png") no-repeat;
+  height:84px;
+}
+
+/* Menu Botton*/
+.hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
+.fg-button { clear:left; margin:0 4px 40px 20px; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+.fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+a.fg-button { float:left;  }
+button.fg-button { width:auto; overflow:visible; } /* removes extra button width in IE */
+.fg-button-icon-right { padding-right: 2.1em; }
+.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */
+.fg-button.ui-state-loading .ui-icon { background: url(/assets/images/spinner_bar.gif) no-repeat 0 0; }
+
+

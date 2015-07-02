@@ -1,0 +1,31 @@
+/*
+ * Blackberry MMS
+ * file : auth.css
+ * Author : Edi Suwoto S.Kom
+ */
+
+body {
+ background: #000;
+ overflow:hidden;
+ font-size:11px;
+ font-family:verdana;
+}
+#bgauth {
+margin:auto;
+width: 800px;
+height:600px;
+border:1px solid #666;
+font-size:11px;
+margin-top:50px;
+}
+
+#form {
+ position:relative;
+ top:-380px;
+ left:490px;
+ width:120px;
+}
+
+input{clear:both;padding:3px;border:1px solid #333;background:#555;color:#fff;}
+input:focus,textarea:focus{background:#efefef;color:#000;}
+p {border-bottom:1px dotted #666}

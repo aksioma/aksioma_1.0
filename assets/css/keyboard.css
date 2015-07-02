@@ -1,0 +1,112 @@
+
+#container {
+margin:auto;
+width: 688px;
+height:230px;
+position:absolute;
+border: 3px solid #000;
+padding: 10px;
+cursor: move;
+background:#ccc;
+top:130px;
+left:20%;
+display:none;
+}
+
+#keyboard {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+	#keyboard li {
+	float: left;
+	margin: 0 5px 5px 0;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	}
+		.capslock, .tab, .left-shift {
+		clear: left;
+		}
+			#keyboard .tab, #keyboard .delete {
+			width: 70px;
+			}
+			#keyboard .capslock {
+			width: 80px;
+			}
+			#keyboard .return {
+			width: 77px;
+			}
+			#keyboard .left-shift {
+			width: 95px;
+			}
+			#keyboard .right-shift {
+			width: 109px;
+			}
+		.lastitem {
+		margin-right: 0;
+		}
+		.uppercase {
+		text-transform: uppercase;
+		}
+		#keyboard .space {
+		clear: left;
+		width: 681px;
+		}
+		.on {
+		display: none;
+		}
+		#keyboard li:hover {
+		position: relative;
+		top: 1px;
+		left: 1px;
+		border-color: #e5e5e5;
+		cursor: pointer;
+		}
+
+/*-------------- Add by Budi --------------------------*/
+body {
+ background: #666 url('/assets/images/background_top.jpg') repeat-x;
+}
+#banner_top {
+  position: absolute;
+  top : 0px;
+  left: 0px;
+}
+#login {
+  width:474px;
+  height:133px;
+  margin:0 auto;
+  background: url('/assets/images/bg_login.jpg') no-repeat;
+}
+#banner_bottom {
+  width:913px;
+  margin:0 auto;
+}
+.inp {
+  border: 2px solid #E7AB9D;
+  font-size:18px;
+  font-weight: bold;
+  width:150px;
+}
+
+#keyboard input
+{
+    font-size:36px;
+    cursor:pointer;
+}
+#virkey
+{
+    position:relative;
+    bottom:-20px;
+    margin:auto;
+    width:121px;
+    height:54px;
+    background: url('/assets/images/virtualkey.png') no-repeat;
+    cursor:pointer;
+}

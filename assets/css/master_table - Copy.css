@@ -1,0 +1,85 @@
+/* CSS untuk Master Table                       */
+/* File   : master_table.css                    */
+/* Author : Edi Suwoto S.Komp                           */
+
+.control-label1{float:left;width:260px;padding-top:5px;text-align:right}
+
+.tbl_list {
+    border-spacing:1px;
+	border: 1px solid #666;
+    color: #666;
+	width: 100%;
+}
+
+.paging_wrap {
+	text-align: center;
+	padding: 3px 0 3px 0;
+	margin-top: 3px;
+}
+img {
+	vertical-align:middle;
+	behavior: url("assets/css/iepngfix.htc");
+    border: none;
+    cursor: pointer;
+}
+.fg-button {
+   outline: 0;
+   margin:0 4px 0 0;
+   padding: .4em 1em;
+   text-decoration:none !important;
+   cursor:pointer;
+   position: relative;
+   text-align: center;
+   zoom: 1;
+}
+.reset{
+   outline: 0;
+   cursor:pointer;
+   margin-top:-10px;
+}
+.rowhover {
+    background-color: #ffd;
+}
+/* Grid
+----------------------------------*/
+.ui-grid { width: background-image: none;margin:auto }
+.ui-grid .ui-grid-content { width: 100%; border-collapse: collapse; }
+.ui-grid table tbody td, .ui-grid .ui-grid-header, .ui-grid table thead a { padding: .4em;  }
+/*.ui-grid table tbody td {  text-align: right; font-weight: normal;  }*/
+.ui-grid .ui-grid-header, .ui-grid .ui-grid-footer { padding: .8em .4em; }
+.ui-grid .ui-grid-footer { background-image: none; }
+.ui-grid table thead a { display: block;  }
+.ui-grid .ui-icon { float: right; }
+.ui-grid .ui-icon-seek-first, .ui-grid  .ui-icon-triangle-1-w { float: left; }
+/*.ui-grid .ui-grid-paging { float: right; }*/
+.ui-grid .ui-grid-paging { cursor:pointer;float: left; width: 30px; height: 21px; }
+.ui-grid .ui-grid-results {  }
+
+.ui-icon-table { float: center; }
+
+/* ---- CSS Form di Dialog --- */
+
+form{margin:0;padding:10px;}
+fieldset{margin:1em 0;border:none;}
+legend{margin:1em 0;padding:0 .5em 0 0;color:#036;background:transparent;font-size:1.3em;font-weight:bold;}
+label{float:left;width:130px;padding:0 1em;text-align:right;}
+fieldset div{margin-bottom:.5em;padding:0;display:block;}
+.slct,.inp, fieldset div textarea{width:150px;border-top:1px solid #555;border-left:1px solid #555;border-bottom:1px solid #ccc;border-right:1px solid #ccc;padding:1px;color:#333;}
+fieldset div select{padding:1px;}
+div.fm-multi div{margin:5px 0;}
+div.fm-multi input{width:1em;}
+div.fm-multi label{display:block;width:200px;padding-left:5em;text-align:left;}
+.fm-submit{text-align:center;}
+.fm-submit input{clear:both;padding:3px;border:1px solid #333;background:#555;color:#fff;font-size:100%;}
+input:focus,textarea:focus{background:#efefef;color:#000;}
+fieldset div.fm-req{font-weight:bold;}
+fieldset div.fm-req label:before{content:"* ";}
+/*
+#container{margin:0 auto;padding:1em;width:350px;text-align:left;}*/
+
+p#fm-intro{margin:0;}
+.dtl{font-weight:bold;}
+#ctkframe{
+	display:none;
+	visibility: hidden;
+}

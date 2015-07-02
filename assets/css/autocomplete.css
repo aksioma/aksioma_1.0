@@ -1,0 +1,82 @@
+/* 
+    Document   : autocomplete
+    Created on : Jun 16, 2009, 1:43:49 PM
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+/
+
+/* Jquery Autocomplete CSS */
+    .ac_results {
+        padding: 0px;
+        border: 1px solid black;
+        background-color: #eee;
+        overflow: hidden;
+        z-index: 99999;
+    }
+
+    .ac_results ul {
+        width: 100%;
+        list-style-position: outside;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .ac_results li {
+        margin: 0px;
+        padding: 2px 5px;
+        cursor: default;
+        display: block;
+        /*
+        if width will be 100% horizontal scrollbar will apear
+        when scroll mode will be used
+        */
+        /*width: 100%;*/
+        font: menu;
+        font-size: 12px;
+        /*
+        it is very important, if line-height not setted or setted
+        in relative units scroll will be broken in firefox
+        */
+        line-height: 16px;
+        overflow: hidden;
+    }
+
+    .ac_loading {
+        background: white url('../images/indicator.gif') right center no-repeat;
+    }
+
+    .ac_odd {
+        background-color: #fff;
+    }
+
+    .ac_over {
+        background-color: #0A246A;
+        color: white;
+    }
+
+/* Tooltip */
+.toolTip { /* This is the hook that the jQuery script will use */
+	cursor: help;
+	position: relative; /* This contains the .toolTipWrapper div that is absolutely positioned  */
+}
+
+.nmgrp {
+    color:#666;
+    text-decoration:none;
+}
+.nmgrp:hover {
+    font-weight:bold;
+}
+.toolTipWrapper { /* The wrapper holds its insides together */
+		width: 125px;
+		position: absolute; /* Absolute will make the tooltip float above other content in the page */
+		top: 20px;
+		display: none; /* It has to be displayed none so that the jQuery fadein and fadeout functions will work */
+		color: #fff;
+		font-weight: bold;
+		font-size: 9pt; /* A font size is needed to maintain consistancy */
+		background: #156DA4;
+		border: 1px #fff dotted;
+}
