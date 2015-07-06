@@ -66,20 +66,11 @@
       <input type="button" id="loginbtn" class="btn btn-block btn-inverse" value="Login" />
     </form>
     <form id="forgotform" class="form-vertical no-padding no-margin hide">
-      <p class="center">Enter your e-mail address below to reset your password.</p>
-      <div class="control-group">
-        <div class="controls">
-          <div class="input-prepend">
-            <span class="add-on"><i class="icon-envelope"></i></span><input id="input-email" type="text" placeholder="Email" />
-          </div>
-        </div>
-        <div class="space10"></div>
-      </div>
-      <input type="button" id="forget-btn" class="btn btn-block btn-inverse" value="Submit" />
+      <p class="center">Silahkan hubungi administrator.</p>
     </form>
   </div>
   <div id="login-copyright">
-    AKSIOMA (Aplikasi Keuangan Mikro Masyarakat Ekonomi Syariah) ver. 1.0 ini dipersembahkan oleh :<br>
+    AKSIOMA (Aplikasi Keuangan Mikro Masyarakat Ekonomi Syariah) ver. 1.0 ini dipersembahkan oleh<br>
     <img src="assets/img/pegadaian.png" alt="pegadaian" class="center" />
   </div>
   <script src="../assets/plugins/jquery-1.8.3.min.js" type="text/javascript"></script> 

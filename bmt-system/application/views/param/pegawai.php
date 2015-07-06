@@ -373,6 +373,9 @@
 		    <p class="infonya"></p>
     </form>
 </div>
+<div id="dialog-hapus-pegawai">
+      <br /><h3><img src="assets/images/question.png">&nbsp;Anda yakin <span class="phps"></span> akan dihapus ?</h3>
+</div>
 <div id="dialog-hapus-otoritas">
       <br /><h3><img src="assets/images/question.png">&nbsp;Anda yakin <span class="phps"></span> akan dihapus ?</h3>
 </div>

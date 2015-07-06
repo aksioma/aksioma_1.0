@@ -281,7 +281,7 @@ $(document).ready(function(){
      });
 
      //---- Dialog Hapus Pegawai
-     $('#dialog-hapus').dialog({autoOpen: false,width: 400,modal: true,
+     $('#dialog-hapus-pegawai').dialog({autoOpen: false,width: 400,modal: true,
         buttons: {
                     "Ok": function() {
                         respon = ajak("param/pegawai/delPegawai","id=" + jAmbil("idx"));
@@ -348,10 +348,10 @@ $(document).ready(function(){
     function(hal,juml,json) {
         var isi="";
         for(i = 0; i < json['alldata'].length; i++) {
-            idx = "p" + json['alldata'][i].pegawai_id;
+            idx = "e" + json['alldata'][i].pegawai_id;
             dtx = json['alldata'][i];
             jSimpan(idx,dtx);
-            managepeg = (idx != 'p1') ? "<img class=\"chpsp\" title=\"Hapus\" src=\"assets/images/remove-user.png\"/>&nbsp;<img  class=\"cedtp\" title=\"Edit\" src=\"assets/images/edit-user.png\"/>&nbsp;" : "";
+            managepeg = (idx != 'e1') ? "<img class=\"chpspe\" title=\"Hapus\" src=\"assets/images/remove-user.png\"/>&nbsp;<img  class=\"cedtpe\" title=\"Edit\" src=\"assets/images/edit-user.png\"/>&nbsp;" : "";
             isi += "<tr style=\"vertical-align:top;\">"
                 + "<td align=\"center\">" + (((hal - 1) * juml ) + (i + 1)) + "</td>"
                 + "<td align=\"center\">" + json['alldata'][i].nip + "</td>"
@@ -369,43 +369,43 @@ $(document).ready(function(){
     },
     function domIsi() {
         //---- Hapus
-        $('.chpsp').click( function() {
+        $('.chpspe').click( function() {
             $(".infonya").hide();
-            obj = jAmbil("p" + $(this).parent().next().text());
+            obj = jAmbil("e" + $(this).parent().next().text());
             $('.phps').html(obj.nama_pegawai);
             jSimpan("idx",obj.pegawai_id);
-            $('#dialog-hapus').dialog('option', 'title',  'Hapus Pegawai' ).dialog('open');
+            $('#dialog-hapus-pegawai').dialog('option', 'title',  'Hapus Pegawai' ).dialog('open');
             return false;
         });
         //---- Edit
-        $('.cedtp').click( function() {
+        $('.cedtpe').click( function() {
             $(".infonya").hide();
-            obj = jAmbil("p" + $(this).parent().next().text());
-            isi = ajak('param/pegawai/isi_jabatan');
-            $("select[name='id_jabatan']").html(isi);
-            $('.inp:eq(0)').val(obj.nip);
-            $('select[name="id_jabatan"]').val(obj.id_jabatan);
-            $('.inp:eq(1)').val(obj.nama_pegawai);
-            $('.inp:eq(2)').val(obj.nama_panggilan);
-            $('.inp:eq(3)').val(obj.tpt_lhr);
-            $('.inp:eq(4)').val(obj.tgl_lhr);
-            $('select[name="jns_klmn"]').val(obj.jns_klmn);
-            $('select[name="agama"]').val(obj.agama);
-            $('select[name="status"]').val(obj.status);
-            $('.inp:eq(5)').val(obj.alamat);
-            $('.inp:eq(6)').val(obj.kota);
-            $('.inp:eq(7)').val(obj.telepon);
-            $('.inp:eq(8)').val(obj.pendidikan);
-            $('.inp:eq(9)').val(obj.noktp);
-            $('.inp:eq(10)').val(obj.keterangan);
-            jSimpan("idx",obj.pegawai_id);
+            obj = jAmbil("e" + $(this).parent().next().text());
+             $("#form_pegawai input[name='nip']").val(obj.nip);
+             isi = ajak('param/pegawai/isi_jabatan');
+             $("#form_pegawai select[name='id_jabatan']").html(isi);
+             $("#form_pegawai select[name='id_jabatan']").val(obj.id_jabatan);
+             $("#form_pegawai input[name='nama_pegawai']").val(obj.nama_pegawai);
+             $("#form_pegawai input[name='nama_panggilan']").val(obj.nama_panggilan);
+             $("#form_pegawai input[name='tpt_lhr']").val(obj.tpt_lhr);
+             $("#form_pegawai input[name='tgl_lhr']").val(obj.tgl_lhr);
+             $("#form_pegawai select[name='jns_klmn']").val(obj.jns_klmn);
+             $("#form_pegawai select[name='agama']").val(obj.agama);
+             $("#form_pegawai select[name='status']").val(obj.status);
+             $("#form_pegawai textarea[name='alamat']").val(obj.alamat);
+             $("#form_pegawai input[name='alamat']").val(obj.kota);
+             $("#form_pegawai input[name='telepon']").val(obj.telepon);
+             $("#form_pegawai input[name='pendidikan']").val(obj.pendidikan);
+             $("#form_pegawai input[name='noktp']").val(obj.noktp);
+             $("#form_pegawai textarea[name='keterangan']").val(obj.keterangan);
+             jSimpan("idx",obj.pegawai_id);
             $('#dialog-pegawai').dialog('option', 'title',  'Edit Pegawai' ).dialog('open');
             return false;
         });
         //---- Upload
         $('.cupload').click( function() {
             $(".infonya").hide();
-            obj = jAmbil("p" + $(this).parent().next().text());
+            obj = jAmbil("e" + $(this).parent().next().text());
             $('.napeg').html(obj.nama_pegawai);
             $('#userfile').val('');
             $('input[name="nipfoto"]').val(obj.nip);
@@ -418,7 +418,7 @@ $(document).ready(function(){
             return false;
         });
         $('.cdetail').click( function() {
-            obj = jAmbil("p" + $(this).parent().next().text());
+            obj = jAmbil("e" + $(this).parent().next().text());
             $('.dtl:eq(0)').html(obj.nip);
             $('.dtl:eq(1)').html(obj.nama_jabatan);
             $('.dtl:eq(2)').html(obj.nama_pegawai);
@@ -514,7 +514,7 @@ $(document).ready(function(){
             idx = "j" + json['alldata'][i].jabatan_id;
             dtx = json['alldata'][i];
             jSimpan(idx,dtx);
-            managejab = (idx != 'j1') ? "<img class=\"chps\" title=\"Hapus\" src=\"assets/images/delicon.png\"/>&nbsp;<img  class=\"cedt\" title=\"Edit\" src=\"assets/images/editicon.png\"/>" : "";
+            managejab = (idx != 'j1') ? "<img class=\"chpsp\" title=\"Hapus\" src=\"assets/images/delicon.png\"/>&nbsp;<img  class=\"cedte\" title=\"Edit\" src=\"assets/images/editicon.png\"/>" : "";
             isi += "<tr style=\"vertical-align:top;\">"
                 + "<td align=\"center\">" + (((hal - 1) * juml ) + (i + 1)) + "</td>"
                 + "<td align=\"left\">" + json['alldata'][i].nama_jabatan + "</td>"
@@ -527,7 +527,7 @@ $(document).ready(function(){
     },
     function domIsi() {
         //---- Hapus
-        $('.chps').click( function() {
+        $('.chpsp').click( function() {
             $(".infonya").hide();
             obj = jAmbil("j" + $(this).parent().next().text());
             $('.phps').html(obj.nama_jabatan);
@@ -536,7 +536,7 @@ $(document).ready(function(){
             return false;
         });
         //---- Edit
-        $('.cedt').click( function() {
+        $('.cedte').click( function() {
             $(".infonya").hide();
             obj = jAmbil("j" + $(this).parent().next().text());
             $("#form_jabatan input[name='nama_jabatan']").val(obj.nama_jabatan);
