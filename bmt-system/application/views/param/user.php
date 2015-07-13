@@ -15,7 +15,7 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<title>BMT</title>
+	<title>AKSIOMA</title>
     <link rel="icon" href="../assets/images/favicon.jpg" type="image/jpg" />
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
