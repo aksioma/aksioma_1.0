@@ -39,10 +39,10 @@ $(document).ready(function(){
         if (hasil['isi'] != "invalid") {
             num = $("#form_selisihkurang input[name='jumlah']").val();
             jumlah = num.replace(/\s|\./g,'');
-            respon = ajak("trans/selisihkurang/selisih",$('#form_selisihkurang').serialize());
+            respon = ajak("trans/selisihkuranglebih/selisih",$('#form_selisihkurang').serialize());
             if (respon == "1") {
-                alert("Selisih kurang sebesar Rp "+ num + " Berhasil");
-                window.location.href = "trans/selisihkurang";
+                alert("Selisih sebesar Rp "+ num + " Berhasil");
+                window.location.href = "trans/selisihkuranglebih";
             } else if(respon == "1062") {
                 showinfo("No. Ref sudah ada");
                 return false;

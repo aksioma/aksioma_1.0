@@ -66,7 +66,7 @@ class Posting extends Controller {
         if(($tgl1 != "")&&($tgl2 != "")){
             $where .= " AND accounttrans_date BETWEEN '$tgl1' AND '$tgl2'";
         }
-        $query = $this->db->query("SELECT * FROM tb_accounttemp ".$where."");
+        $query = $this->db->query("SELECT * FROM tb_accounttemp ".$where." ORDER BY create_date");
         $data = $query->result_array();
         //echo $data;
         $hasil['alldata'] = $data;

@@ -208,7 +208,7 @@
                                                         </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td valign="top" width="50%">
+                                                            <td valign="top" width="30%">
                                                                 <div>
                                                                     <table style="width:100%;color:#000" border="0" bgcolor="#fff">
                                                                         <thead>
@@ -225,12 +225,12 @@
                                                                     </table>
                                                                 </div>
                                                             </td>
-                                                            <td valign="top" width="50%">
+                                                            <td valign="top" width="70%">
                                                                 <div>
                                                                     <table style="width:100%;color:#000" border="0" bgcolor="#fff">
                                                                         <thead>
                                                                         <tr style="background:#F2F2F2;text-align:center;">
-                                                                            <td align=\"center\" colspan="5"><b>Angsuran yang sudah dibayarkan</b></td>
+                                                                            <td align=\"center\" colspan="6"><b>Angsuran yang sudah dibayarkan</b></td>
                                                                         </tr>
                                                                         <tr style="background:#F2F2F2;text-align:center;">
                                                                             <td style="border-top:1px solid #000"><b>Tanggal</b></td>

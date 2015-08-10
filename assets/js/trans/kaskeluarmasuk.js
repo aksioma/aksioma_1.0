@@ -42,7 +42,7 @@ $(document).ready(function(){
             jumlah = num.replace(/\s|\./g,'');
             respon = ajak("trans/kaskeluarmasuk/tarikkas",$('#form_kaskeluar').serialize());
             if (respon == "1") {
-                alert("Tarik kas sebesar Rp "+ num + " Berhasil");
+                alert("Selisih Kas Rp "+ num + " Berhasil");
                 window.location.href = "trans/kaskeluarmasuk";
             } else if(respon == "1062") {
                 showinfo("No. Ref sudah ada");
