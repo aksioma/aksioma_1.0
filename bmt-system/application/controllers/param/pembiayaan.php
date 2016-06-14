@@ -90,6 +90,7 @@ class Pembiayaan extends Controller {
     function editPembiayaan()
     {
         $data = $this->allfunct->securePost();
+        $data1 = $data['kode_produk'];
         $data['biaya_administrasi'] = $data['biaya_administrasi'];
         $id	= $data['kode_produk'];
 		unset($data['kode_produk']);

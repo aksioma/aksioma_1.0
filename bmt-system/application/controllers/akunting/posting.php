@@ -96,6 +96,8 @@ class Posting extends Controller {
             $resp['create_date'] = date("Y-m-d H:i:s");
             $resp['create_by'] = $this->session->userdata('username');
             $resp['update_by'] = $this->session->userdata('username');
+            $resp['accounttrans_curency'] = $this->session->userdata('cbg');
+            
             $this->master->simpan('tb_accounttrans',$resp);
             
             $data1['accounttrans_posted'] = "1";

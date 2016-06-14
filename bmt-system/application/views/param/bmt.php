@@ -123,6 +123,7 @@
                                 <ul class="nav nav-tabs">
                                    <li class="active"><a href="#tabs-1" data-toggle="tab">Tentang BMT</a></li>
                                    <li><a href="#tabs-2" data-toggle="tab">Wilayah Kerja</a></li>
+                                   <li><a href="#tabs-3" data-toggle="tab">Tahun Buku</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tabs-1">
@@ -201,6 +202,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane" id="tabs-3">
+                                        <div class="widget box blue">
+                                            <div class="widget-title">
+                                               <h4><i class="icon-reorder"></i>Tahun Buku</h4>
+                                            </div>
+                                            <div id="table_tahunbuku">
+                                                <?php
+                                                $thnbuku['option'][] = array("nama_tahun","Tahun Buku"); // value,title
+                                                $thnbuku['tombol'] = '<button id="addtahunbuku" class="btn btn-success">Tambah Tahun Buku <i class="icon-plus"></i></button>';
+                                                $thnbuku['tabel_head'][] = array("","3%","No"); // id,width,title
+                                                $thnbuku['tabel_head'][] = array("nama_tahun","20%","Tahun");
+                                                $thnbuku['tabel_head'][] = array("","20%","TGL Mulai");
+                                                $thnbuku['tabel_head'][] = array("","20%","TGL Selesai");
+                                                $thnbuku['tabel_head'][] = array("","5%","Status");
+                                                $thnbuku['tabel_head'][] = array("","10%","Manage");
+                                                $thnbuku['tabel_head'][] = array("tahunbuku_id","5%","ID");
+                                                $this -> load -> view( 'filter_layout',$thnbuku );
+                                                $this -> load -> view( 'table_layout',$thnbuku );
+                                                //$this -> load -> view( 'paging_layout',$bmt );
+                                                ?>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 						</div>
 					</div>
@@ -230,7 +254,33 @@
 		    <p class="infonya"></p>
     </form>
 </div>
+<div id="dialog-tahunbuku">
+      <form id="form_tahunbuku" method="post">
+        <fieldset>
+		    <div class="fm-req">
+		      <label for="kode">Tahun buku :</label>
+		      <input class="inp" name="nama_tahun"  type="text" maxlength="20"/>
+		    </div>
+		    <div class="fm-req">
+		      <label for="wilayah_kerja">Tgl Mulai :</label>
+		      <input class="inp tgl" maxlength="10" name="tgl_mulai"  type="text" style="width:80px" />
+		    </div>
+		    <div class="fm-req">
+		      <label for="wilayah_kerja">Tgl Selesai :</label>
+		      <input class="inp tgl" maxlength="10" name="tgl_akhir"  type="text" style="width:80px" />
+		    </div>
+		    <div class="fm-opt">
+		      <label for="active">Aktif :</label>
+		      <input type="checkbox" id="CTBaktif" name="active"/>
+		    </div>
+		    </fieldset>
+		    <p class="infonya"></p>
+    </form>
+</div>
 <div id="dialog-hapus-bmt">
+      <br /><h3><img src="assets/images/question.png">&nbsp;Anda yakin <span class="phps"></span> akan dihapus ?</h3>
+</div>
+<div id="dialog-hapus-tahunbuku">
       <br /><h3><img src="assets/images/question.png">&nbsp;Anda yakin <span class="phps"></span> akan dihapus ?</h3>
 </div>
 </body>

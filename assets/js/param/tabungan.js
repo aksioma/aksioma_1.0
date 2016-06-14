@@ -341,9 +341,7 @@ $(document).ready(function(){
                     }
                     for(i = 0; i < json['alldata'].length; i++) {
                     	
-                    	$('#form_mtabungan input:eq(1)').val(json['alldata'][i].adm_buka_rekening);
-                        $('#form_mtabungan input:eq(2)').val(json['alldata'][i].adm_tutup_rekening);
-                        $('#form_mtabungan input:eq(3)').val(json['alldata'][i].adm_lain_lain);
+                    	$("#form_mtabungan input[name='adm_lain_lain']").val(json['alldata'][i].adm_lain_lain);
                         $("#form_mtabungan input[name='tab_pph']").val(json['alldata'][i].tab_pph);
                         $("#form_mtabungan input[name='tab_zakat']").val(json['alldata'][i].tab_zakat);
                         isi = ajak('param/listakun/isi_akun');

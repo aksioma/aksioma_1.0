@@ -992,6 +992,32 @@ class Admin_model extends Model {
 	}
 
 
+	/*
+	
+	*  --------------------- Fungsi tahun buku -------------------------------
+	*/
+	// --- Mendapatkan tahun buku.
+	function getTahunBuku($ff,$isf,$fd,$ADsc,$awal,$jum)
+	{
+		if ($isf == "") {
+			$whr = "WHERE 1";
+			$alldata['numrow'] = $this->db->count_all_results('master_tahunbuku');
+		} else {
+			$whr = "WHERE $ff LIKE '%$isf%'";
+			$query = $this-> db -> query( "SELECT nama_tahun
+					FROM `master_tahunbuku`
+					$whr" );
+					$alldata['numrow'] = $query -> num_rows();
+		}
+		$query = $this -> db -> query( "SELECT *
+			FROM `master_tahunbuku`
+			$whr
+			ORDER BY `$fd` $ADsc
+			LIMIT $awal,$jum" );
+			$alldata['result'] = $query -> result_array();
+			return ( $query -> num_rows() > 0 ) ? $alldata : FALSE;
+	}
+	
 /*
  *  --------------------- Fungsi Jabatan -------------------------------
  */
@@ -1016,7 +1042,29 @@ class Admin_model extends Model {
         $alldata['result'] = $query -> result_array();
       	return ( $query -> num_rows() > 0 ) ? $alldata : FALSE;
 	}
-
+	/*
+	 *  --------------------- Fungsi plugin -------------------------------
+	*/
+	// --- Mendapatkan plugin.
+	function getAllPlugin($ff,$isf,$fd,$ADsc,$awal,$jum)
+	{
+		if ($isf == "") {
+			$whr = "WHERE 1";
+			$alldata['numrow'] = $this->db->count_all_results('plugin');
+		} else {
+			$whr = "WHERE $ff LIKE '%$isf%'";
+			$query = $this-> db -> query( "SELECT name_plugin 
+					FROM `plugin` $whr" );
+					$alldata['numrow'] = $query -> num_rows();
+		}
+		$query = $this -> db -> query( "SELECT *
+		FROM `plugin` 
+		$whr
+		ORDER BY `$fd` $ADsc
+		LIMIT $awal,$jum" );
+		$alldata['result'] = $query -> result_array();
+		return ( $query -> num_rows() > 0 ) ? $alldata : FALSE;
+	}
 /*
  *  --------------------- Fungsi Pegawai -------------------------------
  */

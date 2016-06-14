@@ -36,14 +36,14 @@ class Labarugi extends Controller {
         $id = $this->input->post('id');
         $tglawal = $this->allfunct->revDate($this->input->post('tglawal'));
         $tglakhir = $this->allfunct->revDate($this->input->post('tglakhir'));
-        $hasil = $this->db->query("SELECT listakun_id,listakun_code,listakun_name,listakun_pattern FROM coa_listakun WHERE listakun_parent = '0' AND listakun_pattern IN(".$id.")")->result();
+        $hasil = $this->db->query("SELECT listakun_id,listakun_code,listakun_name,listakun_pattern FROM coa_listakun WHERE listakun_parent = '0' AND listakun_pattern IN(".$id.") ORDER BY `coa_listakun`.`listakun_code` ASC")->result();
         $isi = "";
         $totalLabaAll = 0;
 		foreach ($hasil as $row)
 		{
     		$totalLaba = 0;
             $isi .= "<tr><td align=\"left\" colspan=\"4\">".$row->listakun_code." ".$row->listakun_name."</td></tr>";
-            $hasill = $this->db->query("SELECT listakun_id,listakun_code,listakun_name FROM coa_listakun WHERE listakun_alias='GL' AND listakun_parent = '".$row->listakun_id."' ORDER BY listakun_code")->result();
+            $hasill = $this->db->query("SELECT listakun_id,listakun_code,listakun_name FROM coa_listakun WHERE listakun_alias='GL' AND listakun_parent = '".$row->listakun_id."' ORDER BY `coa_listakun`.`listakun_code` ASC")->result();
             foreach ($hasill as $val) 
             {
                 $isi .= "<tr><td width=\"5%\">&nbsp;</td><td align=\"left\">".$val->listakun_code." ".$val->listakun_name."</td>";
@@ -81,13 +81,13 @@ class Labarugi extends Controller {
         $id = $this->input->post('id');
         $tglawal = $this->allfunct->revDate($this->input->post('tglawal'));
         $tglakhir = $this->allfunct->revDate($this->input->post('tglakhir'));
-        $hasil = $this->db->query("SELECT listakun_id,listakun_code,listakun_name FROM coa_listakun WHERE listakun_parent = '0' AND listakun_pattern IN(".$id.")")->result();
+        $hasil = $this->db->query("SELECT listakun_id,listakun_code,listakun_name FROM coa_listakun WHERE listakun_parent = '0' AND listakun_pattern IN(".$id.") ORDER BY `coa_listakun`.`listakun_code` ASC")->result();
         $isi = "";
         $totalLaba = 0;
 		foreach ($hasil as $row)
 		{
     		$isi .= "<tr><td align=\"left\" colspan=\"4\">".$row->listakun_code." ".$row->listakun_name."</td></tr>";
-            $hasill = $this->db->query("SELECT listakun_id,listakun_code,listakun_name,listakun_pattern FROM coa_listakun WHERE listakun_alias='GL' AND listakun_parent = '".$row->listakun_id."' ORDER BY listakun_code")->result();
+            $hasill = $this->db->query("SELECT listakun_id,listakun_code,listakun_name,listakun_pattern FROM coa_listakun WHERE listakun_alias='GL' AND listakun_parent = '".$row->listakun_id."'")->result();
             foreach ($hasill as $val) 
             {
                 $totaln = 0;
@@ -125,7 +125,7 @@ class Labarugi extends Controller {
         //$query = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS jlh FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
         //$data = $query->result_array();
         //return $data[0]["jlh"] * 1;
-        if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353")){
+        if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353") ||($id =="342")||($id =="343") ||($id == "325")||($id == "326")||($id == "327")||($id == "328")||($id == "329")||($id == "330") || ($id == "334")||($id == "335")||($id == "336")||($id == "337")||($id == "338")||($id == "339")){
         	$query1 = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '02' THEN accounttrans_value END) AS jlh1 FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
         }else{
         	$query1 = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS jlh1 FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
@@ -137,7 +137,10 @@ class Labarugi extends Controller {
         $data3 = $query3->result_array();
         $item = substr($data3[0]["listakun_pattern"],0,2);
         if($item == "5*"){
-        	if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353")){
+        	///525.02
+        	///525.32
+        	///525.52
+        	if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353") ||($id =="342")||($id =="343") ||($id == "325")||($id == "326")||($id == "327")||($id == "328")||($id == "329")||($id == "330") || ($id == "334")||($id == "335")||($id == "336")||($id == "337")||($id == "338")||($id == "339")){
         		$trans  = $data1[0]["jlh1"] * -1;
         	}else{
         		$trans  = $data1[0]["jlh1"] * 1;

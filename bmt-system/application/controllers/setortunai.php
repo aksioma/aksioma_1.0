@@ -150,6 +150,7 @@ class Setortunai extends Controller {
 	        $data3['create_date'] = date("Y-m-d H:i:s");
 	        $data3['create_by'] = $this->session->userdata('username');
 	        $data3['update_by'] = $this->session->userdata('username');
+	        
 	        //
 	        $data2['accounttrans_listid'] = $data['id_jurnal'];
 	        $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
@@ -161,6 +162,7 @@ class Setortunai extends Controller {
 	        $data2['create_date'] = date("Y-m-d H:i:s");
 	        $data2['create_by'] = $this->session->userdata('username');
 	        $data2['update_by'] = $this->session->userdata('username');
+	        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
 	        
 	        $nomor_jurnal= $data['nomor_jurnal'];
 	        $nomor_ref= $data['nomor_ref'];

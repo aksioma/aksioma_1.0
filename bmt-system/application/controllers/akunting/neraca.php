@@ -34,6 +34,7 @@ class Neraca extends Controller {
     function sum_neraca()
     {
         $id = $this->input->post('id');
+        //$query = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE YEAR(accounttrans_date)='".$this->authlib->TahunBuku()."' AND accounttrans_listid=$id");
         $query = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE accounttrans_listid=$id");
         $data = $query->result_array();
         echo $data[0]["jlh"] * 1;
@@ -162,7 +163,7 @@ class Neraca extends Controller {
 	        }elseif($item == "3*"){
 	        	$trans  = ($data1[0]["jlh1"] - $data2[0]["jlh2"]) * 1;
 	        }elseif($item == "4*"){
-	        	$trans  = $data1[0]["jlh1"] * 1;
+	        	$trans  = ($data1[0]["jlh1"] - $data2[0]["jlh2"]) * 1;
 	        }else{
 	        	$trans  = ($data2[0]["jlh2"] - $data1[0]["jlh1"]) * 1;
 	        }

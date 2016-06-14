@@ -66,10 +66,10 @@ $(document).ready(function(){
             jumlah = num.replace(/\s|\./g,'');
             limit = ajak('tariktunai/limittarik','&nilai='+jumlah);
             saldo = ajak('tariktunai/saldoval','&id='+ $("#form_setortunai input[name='nomor_rekening']").val());
-            if(limit == "no"){
-                showinfo("Yang bisa tarik tunai Teller atau yg di beri Otoritas");
-                return false;
-            }else{
+            //if(limit == "no"){
+            //    showinfo("Yang bisa setor tunai Teller atau yg di beri Otoritas");
+            //    return false;
+            //}else{
                 respon = ajak("setortunai/savetunai",$('#form_setortunai').serialize());
                 respon = respon.split("#");
                 if (respon[0] == "1") {
@@ -88,7 +88,7 @@ $(document).ready(function(){
                     showinfo("Error : " + respon[0]);
                     return false;
                 }
-            }
+            //}
          } else {
             showinfo("Form dengan tanda * harus Diisi");
             hasil['focus'].focus();

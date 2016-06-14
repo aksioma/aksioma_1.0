@@ -94,6 +94,7 @@ class Angsuran extends Controller {
         $data1['create_date'] = date("Y-m-d H:i:s");
         $data1['create_by'] = $this->session->userdata('username');
         $data1['update_by'] = $this->session->userdata('username');
+        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data2['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -102,6 +103,7 @@ class Angsuran extends Controller {
         $data2['create_date'] = date("Y-m-d H:i:s");
         $data2['create_by'] = $this->session->userdata('username');
         $data2['update_by'] = $this->session->userdata('username');
+        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data3['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data3['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -110,6 +112,7 @@ class Angsuran extends Controller {
         $data3['create_date'] = date("Y-m-d H:i:s");
         $data3['create_by'] = $this->session->userdata('username');
         $data3['update_by'] = $this->session->userdata('username');
+        $data3['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data4['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data4['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -118,6 +121,7 @@ class Angsuran extends Controller {
         $data4['create_date'] = date("Y-m-d H:i:s");
         $data4['create_by'] = $this->session->userdata('username');
         $data4['update_by'] = $this->session->userdata('username');
+        $data4['accounttrans_curency'] = $this->session->userdata('cbg');
         
         if($data['jenis_pembiayaan'] == "MURABAHAH"){
             $data1['accounttrans_listid'] = "19";
@@ -136,6 +140,11 @@ class Angsuran extends Controller {
             $data4['accounttrans_type'] = '01';
             $data4['accounttrans_value'] = $margin;
             
+            $this->master->simpan('tb_accounttrans',$data1);
+        	$this->master->simpan('tb_accounttrans',$data2);
+        	$this->master->simpan('tb_accounttrans',$data3);
+        	$this->master->simpan('tb_accounttrans',$data4);
+            
         }elseif(($data['jenis_pembiayaan'] == "MUDHARABAH")||($data['jenis_pembiayaan'] == "MUSYARAKAH")){
             $data1['accounttrans_listid'] = "19";
             $data1['accounttrans_type'] = '02';
@@ -149,6 +158,14 @@ class Angsuran extends Controller {
             $data3['accounttrans_type'] = '01';
             $data3['accounttrans_value'] = $margin;
             
+            $data4['accounttrans_listid'] = '19';
+            $data4['accounttrans_type'] = '02';
+            $data4['accounttrans_value'] = $margin;
+            
+            $this->master->simpan('tb_accounttrans',$data1);
+            $this->master->simpan('tb_accounttrans',$data2);
+            $this->master->simpan('tb_accounttrans',$data3);
+            $this->master->simpan('tb_accounttrans',$data4);
         }elseif($data['jenis_pembiayaan'] == "AL-QARDH"){
             $data1['accounttrans_listid'] = "19";
             $data1['accounttrans_type'] = '02';
@@ -157,12 +174,11 @@ class Angsuran extends Controller {
             $data2['accounttrans_listid'] = $data['id_jurnal'];
             $data2['accounttrans_type'] = '01';
             $data2['accounttrans_value'] = $data['jumlah'];
+            
+            $this->master->simpan('tb_accounttrans',$data1);
+            $this->master->simpan('tb_accounttrans',$data2);
         }
         
-        $this->master->simpan('tb_accounttrans',$data1);
-        $this->master->simpan('tb_accounttrans',$data2);
-        $this->master->simpan('tb_accounttrans',$data3);
-        $this->master->simpan('tb_accounttrans',$data4);
         $data1['accounttrans_posted'] = "1";
         $data2['accounttrans_posted'] = "1";
         $data3['accounttrans_posted'] = "1";

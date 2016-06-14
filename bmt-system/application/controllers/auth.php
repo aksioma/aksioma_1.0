@@ -27,7 +27,7 @@ class Auth extends Controller {
 
     function login()
 	{
-		$login = array($this->input->post('username'), $this->input->post('password'));
+		$login = array($this->input->post('username'), $this->input->post('password'), $this->input->post('cabang'));
 		$resp = $this->authlib->login($login);
 		echo $resp;
 	}
@@ -41,7 +41,17 @@ class Auth extends Controller {
 	{
 		$this->load->view('denied');
 	}
-
+	function isi_cabang()
+	{
+		$hasil = $this->db->select('wilayah_id,kode,wilayah_kerja')->get('bmt_wilayah')->result();
+		$i=0;
+		foreach ($hasil as $row)
+		{
+			$clr = (($i%2) == 0) ? '#fff' : '#EFF1F1';
+			echo "<option style=\"background:".$clr."\" value=\"".$row->wilayah_id."\">".$row->kode." - ".$row->wilayah_kerja."</option>";
+			$i++;
+		}
+	}
 }
 
 /* End of file */

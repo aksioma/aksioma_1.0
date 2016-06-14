@@ -71,6 +71,7 @@ class Pencairandeposito extends Controller {
         $data1['create_date'] = date("Y-m-d H:i:s");
         $data1['create_by'] = $this->session->userdata('username');
         $data1['update_by'] = $data['otorisasi'];
+        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data2['accounttrans_listid'] = $data['id_jurnal'];
         $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
@@ -83,6 +84,8 @@ class Pencairandeposito extends Controller {
         $data2['create_date'] = date("Y-m-d H:i:s");
         $data2['create_by'] = $this->session->userdata('username');
         $data2['update_by'] = $data['otorisasi'];
+        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
+        
         $this->master->simpan('tb_accounttrans',$data1);
         $this->master->simpan('tb_accounttrans',$data2);
         $data2['accounttrans_posted'] = '1';

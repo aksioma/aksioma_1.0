@@ -42,7 +42,8 @@ class Listtabungan extends Controller {
 		if(($fv != "")){
 			$where .= " AND `$fv` LIKE '%".$ifv."%'";
 		}
-		$query = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS kredit,SUM(CASE WHEN accounttrans_type like '02' THEN accounttrans_value END) AS debet,t1.*,t2.nama,t2.alamat,t2.kabupaten,t3.nama_pegawai,t5.grouptabungan_nama FROM tb_tabungan AS t1
+		$query = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS kredit,SUM(CASE WHEN accounttrans_type like '02' THEN accounttrans_value END) AS debet,t1.*,t2.nama,t2.rtrw,t2.alamat,t2.kabupaten,t3.nama_pegawai,t5.grouptabungan_nama 
+									FROM tb_tabungan AS t1
     								INNER JOIN tb_nasabah AS t2 ON t2.nomor_nasabah=t1.nomor_nasabah
     								INNER JOIN pegawai AS t3 ON t1.nomor_fo=t3.nip 
 									INNER JOIN tb_accounttrans AS t4 ON t4.accounttrans_user=t1.nomor_rekening 

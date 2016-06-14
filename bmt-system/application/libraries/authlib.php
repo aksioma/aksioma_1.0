@@ -107,15 +107,17 @@ class Authlib {
 	{
 		if(!isset($login))
 			return FALSE;
-		if(count($login) != 2)
+		if(count($login) != 3)
 			return FALSE;
 		$username = $login[0];
 		$pass = $login[1];
+		$cbg = $login[2];
 		$resp = $this->cekpass($username,$pass);
 		if (!is_object($resp)) 
 		{
 			return $resp;			
 		} else {
+			$this->CI->session->set_userdata('cbg', $cbg);
 			$this->CI->session->set_userdata('user_id', $resp->user_id);
 			$this->CI->session->set_userdata('username', $resp->username);
             $this->CI->session->set_userdata('idpeg', $resp->pegawai_id);
@@ -312,6 +314,15 @@ class Authlib {
 		$query = $this->CI->db->where('group_id', $group_id)->get('groups');
 		$hasil = $query->result();
 		return unserialize($hasil[0]->controller);
+	}
+	//--- Tahun Buku
+	function TahunBuku()
+	{
+		$query = $this->CI->db->query("SELECT nama_tahun FROM master_tahunbuku WHERE `active` = '1'");
+			if ($query->num_rows() == 1) {
+				$hasil = $query->result();
+				return $hasil[0]->nama_tahun;
+			}
 	}
 	
 }

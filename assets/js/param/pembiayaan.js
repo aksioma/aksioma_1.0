@@ -191,6 +191,8 @@ $(document).ready(function(){
         });
         $('#pembiayaansave').click(function() {
             respon = ajak("param/pembiayaan/editPembiayaan",$('#form_mpembiayaan').serialize());
+            alert(respon);
+            return false;
             window.location.href = "param/pembiayaan";
         });
         

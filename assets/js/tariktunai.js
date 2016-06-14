@@ -107,7 +107,7 @@ $(document).ready(function(){
             num = $("#form_tariktunai input[name='jumlah']").val();
             jumlah = num.replace(/\s|\./g,'');
             limit = ajak('tariktunai/limittarik','&nilai='+jumlah);
-            saldo = ajak('tariktunai/saldoval','&id='+ $("#form_tariktunai input[name='nomor_rekening']").val());
+            saldo = ajak('tariktunai/saldoval','&id='+ $("#form_tariktunai input[name='nomor_rekening']").val()+'&id_jurnal='+$("#form_tariktunai input[name='id_jurnal']").val());
             saldo = saldo.replace(/\s|\./g,'');
             if(limit == "no"){
                 showinfo("Yang bisa tarik tunai Teller atau yg di beri Otoritas");
@@ -123,7 +123,7 @@ $(document).ready(function(){
                 respon = ajak("tariktunai/savetunai",$('#form_tariktunai').serialize());
                 respon = respon.split("#");
                 if (respon[0] == "1") {
-                    //alert("Tarik tunai sebesar Rp "+ num + " Berhasil");
+                    alert("Tarik tunai sebesar Rp "+ num + " Berhasil");
                 	today = tglskrg();
                 	jam = jamskrg();
                 	$('#ctgl_valid',ctkframe.document).html(today+" "+ jam);
@@ -137,6 +137,7 @@ $(document).ready(function(){
                     showinfo("Error : " + respon[0]);
                 }
             }
+            return false;
          } else {
             showinfo("Form dengan tanda * harus Diisi");
             hasil['focus'].focus();

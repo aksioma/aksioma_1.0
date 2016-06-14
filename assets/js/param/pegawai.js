@@ -97,7 +97,7 @@ $(document).ready(function(){
      //---- Tabel user
     $("#table_user").mastertable({
         urlGet:"param/user/get_user",
-        flook:"nama_pegawai"
+        flook:"nip"
     },
     function(hal,juml,json) {
         var isi="";
@@ -343,7 +343,7 @@ $(document).ready(function(){
      //---- Tabel Pegawai
     $("#table_pegawai").mastertable({
         urlGet:"param/pegawai/get_pegawai",
-        flook:"nama_pegawai"
+        flook:"nip"
     },
     function(hal,juml,json) {
         var isi="";
@@ -355,8 +355,8 @@ $(document).ready(function(){
             isi += "<tr style=\"vertical-align:top;\">"
                 + "<td align=\"center\">" + (((hal - 1) * juml ) + (i + 1)) + "</td>"
                 + "<td align=\"center\">" + json['alldata'][i].nip + "</td>"
-                + "<td align=\"center\">" + json['alldata'][i].nama_pegawai + "</td>"
-                + "<td align=\"center\">" + json['alldata'][i].nama_panggilan + "</td>"
+                + "<td align=\"left\">" + json['alldata'][i].nama_pegawai + "</td>"
+                + "<td align=\"left\">" + json['alldata'][i].nama_panggilan + "</td>"
                 + "<td align=\"center\">" + json['alldata'][i].tpt_lhr + "</td>"
                 + "<td align=\"center\">" + json['alldata'][i].tgl_lhr + "</td>"
                 + "<td>" + json['alldata'][i].alamat + "<br />" + json['alldata'][i].kota + "</td>"

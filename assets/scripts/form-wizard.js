@@ -97,8 +97,11 @@ var FormWizard = function () {
                 id = ajak("base/nasabah/saveNasabah",$('#form_sample_1').serialize());
                 if(id == "1"){
                     $("#table_datanasabah .reset").click();
+                    window.location.href = "base/nasabah";
                 }else if(id == "1062"){
                     ajak("base/nasabah/editNasabah",$('#form_sample_1').serialize());
+                    $("#table_datanasabah .reset").click();
+                    window.location.href = "base/nasabah";
                 }
                 
                 $('#form_sample_1 input').val('');

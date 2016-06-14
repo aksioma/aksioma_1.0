@@ -94,6 +94,7 @@ class Pencairanpembiayaan extends Controller {
         $data1['create_date'] = date("Y-m-d H:i:s");
         $data1['create_by'] = $this->session->userdata('username');
         $data1['update_by'] = $this->session->userdata('username');
+        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data2['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -102,6 +103,7 @@ class Pencairanpembiayaan extends Controller {
         $data2['create_date'] = date("Y-m-d H:i:s");
         $data2['create_by'] = $this->session->userdata('username');
         $data2['update_by'] = $this->session->userdata('username');
+        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data3['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data3['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -110,6 +112,7 @@ class Pencairanpembiayaan extends Controller {
         $data3['create_date'] = date("Y-m-d H:i:s");
         $data3['create_by'] = $this->session->userdata('username');
         $data3['update_by'] = $this->session->userdata('username');
+        $data3['accounttrans_curency'] = $this->session->userdata('cbg');
         
         if($data['jenis_pembiayaan'] == "MURABAHAH"){
             //$data1['accounttrans_type'] = '01';
@@ -124,31 +127,34 @@ class Pencairanpembiayaan extends Controller {
             $data3['accounttrans_listid'] = "44";
             $data3['accounttrans_type'] = '01';
             $data3['accounttrans_value'] = $margin;
+            $this->master->simpan('tb_accounttrans',$data3);
             
         }elseif(($data['jenis_pembiayaan'] == "MUDHARABAH")||($data['jenis_pembiayaan'] == "MUSYARAKAH")){
-            $data1['accounttrans_type'] = '01';
+            $data1['accounttrans_type'] = '02';
             $data1['accounttrans_value'] = $pokokmargin;
             
             $data2['accounttrans_listid'] = "19";
-            $data2['accounttrans_type'] = '02';
+            $data2['accounttrans_type'] = '01';
             $data2['accounttrans_value'] = $pokokmargin;
+            
         }elseif($data['jenis_pembiayaan'] == "AL-QARDH"){
-            $data1['accounttrans_type'] = '01';
+            $data1['accounttrans_type'] = '02';
             $data1['accounttrans_value'] = $pokokmargin;
             
             $data2['accounttrans_listid'] = "19";
-            $data2['accounttrans_type'] = '02';
+            $data2['accounttrans_type'] = '01';
             $data2['accounttrans_value'] = $pokokmargin;
         }
         
         $this->master->simpan('tb_accounttrans',$data1);
         $this->master->simpan('tb_accounttrans',$data2);
-        $this->master->simpan('tb_accounttrans',$data3);
+        
         $data1['accounttrans_posted'] = '1';
         $data2['accounttrans_posted'] = '1';
         $data3['accounttrans_posted'] = '1';
-        $this->master->simpan('tb_accounttemp',$data2);
-        $this->master->simpan('tb_accounttemp',$data3);
+        
+        //$this->master->simpan('tb_accounttemp',$data2);
+        //$this->master->simpan('tb_accounttemp',$data3);
         
         $id_jurnal= $data['nomor_jurnal'];
         $nomor_ref= $data['nomor_ref'];

@@ -13,7 +13,7 @@ class Bmt extends Controller {
 	function __construct()
 	{
 		parent::Controller();
-        $this->authlib->cekcontr();
+       // $this->authlib->cekcontr();
         $this->tema = $this->allfunct->getSetupapp('tema');
         $this->load->model('master_model','master');
         $this->load->model('admin_model','modelku');
@@ -126,6 +126,57 @@ class Bmt extends Controller {
             echo "<option style=\"background:".$clr."\" value=\"".$row->kode."\">".$row->wilayah_kerja."</option>";
             $i++;
 		}
+    }
+    ///tahun buku
+    //---- Simpan tahun buku
+    function saveTahunBuku()
+    {
+    	$data = $this->allfunct->securePost();
+    	$data['tgl_mulai'] = $this->allfunct->revDate($data['tgl_mulai']);
+    	$data['tgl_akhir'] = $this->allfunct->revDate($data['tgl_akhir']);
+    	echo $this->master->simpan('master_tahunbuku',$data);
+    }
+    
+    //---- Edit tahun buku
+    function editTahunBuku()
+    {
+    	$data1['active'] = 0;
+    	$where1 = array('active' => 1);
+    	$this->master->update("master_tahunbuku",$data1,$where1);
+    	$data = $this->allfunct->securePost();
+    	$data['tgl_mulai'] = $this->allfunct->revDate($data['tgl_mulai']);
+    	$data['tgl_akhir'] = $this->allfunct->revDate($data['tgl_akhir']);
+    	$id	= $data['id'];
+    	unset($data['id']);
+    	$where = array('tahunbuku_id' => $id);
+    	echo $this->master->update("master_tahunbuku",$data,$where);
+    }
+    
+    //---- Hapus tahun buku
+    function delTahunBuku()
+    {
+    	$where = array('tahunbuku_id' => $this->input->post('id'));
+    	echo  $this->master->delete("master_tahunbuku",$where);
+    }
+    
+    function get_tahunbuku()
+    {
+    	$ff			= $this->input->post('ff'); // Jenis Filter
+    	$if			= $this->input->post('if'); // Value Filter
+    	$fd			= $this->input->post('fd'); // Field Sorting
+    	$adsc		= $this->input->post('adsc'); // Asc or Desc
+    	$hal		= $this->input->post('hal'); // Offset Limit
+    	$juml		= $this->input->post('juml'); // Jumlah Limit
+    	$awal 		= $juml * ($hal - 1);
+    	$alldata 	= $this->modelku->getTahunBuku($ff,$if,$fd,$adsc,$awal,$juml);
+    	$records 	= $alldata['numrow'];
+    	$page_num 	= ceil($records / $juml);
+    	if ($records > 0)
+    	{
+    		$hasil['total'] = $page_num;
+    		$hasil['alldata'] = $alldata['result'];
+    		echo json_encode($hasil);
+    	}
     }
 }
 

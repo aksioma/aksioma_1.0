@@ -35,13 +35,13 @@ class Tabungan extends Controller {
     function editMTabungan()
     {
         $data = $this->allfunct->securePost();
-        $data['adm_buka_rekening'] = $data['adm_buka_rekening'];
-        $data['adm_tutup_rekening'] = $data['adm_tutup_rekening'];
-        $data['adm_lain_lain'] = $data['adm_lain_lain'];
-        $id	= $data['kode_produk'];
+        $data1['kode_produk'] =  $data['kode_produk'];
+        $this->master->simpan("master_tabungan",$data1);
+       	$id	= $data['kode_produk'];
 		unset($data['kode_produk']);
         $where = array('kode_produk' => $id);
         echo $this->master->update("master_tabungan",$data,$where);
+        
     }
     function get_tabunganinfo()
     {
@@ -110,7 +110,10 @@ class Tabungan extends Controller {
     //---- Simpan mutasi
     function savemutasi()
     {
-        echo $this->master->simpan('master_kodemutasi',$this->allfunct->securePost());
+        $this->master->simpan('master_kodemutasi',$this->allfunct->securePost());
+        $resp = $this->allfunct->securePost();
+        $data1['kode_produk'] = $resp['kode_produk'];
+        echo $this->master->simpan('master_tabungan',$data1);
     }
 
     //---- Edit mutasi
@@ -166,6 +169,7 @@ class Tabungan extends Controller {
     function saveproduk()
     {
         echo $this->master->simpan('master_grouptabungan',$this->allfunct->securePost());
+        
     }
 
     //---- Edit produk

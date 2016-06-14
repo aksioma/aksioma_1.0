@@ -31,7 +31,7 @@ $(document).ready(function(){
         //var produkcode = ajak('base/tabungan/produk_code');
         //var count = ajak('base/tabungan/run_code',"id="+produkcode);
         //var cab = ajak('base/tabungan/cab_code');
-        $("#form_tab input[name='nomor_rekening']").val(produkcode+""+cab+""+count);
+        $("#form_tab input[name='nomor_rekening']").val(count);
         $("#form_tab input[name='tgl_dibuka']").val(isitglskrg());
         $('.nav-tabs li:eq(0)').removeClass('active').addClass('');
         $('.nav-tabs li:eq(1)').removeClass('').addClass('active');

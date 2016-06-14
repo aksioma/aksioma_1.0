@@ -9,7 +9,16 @@
 /*----------------------------------------------------------*/
 $(document).ready(function(){
     $('.jclock').jclock({format: '%A, %d %B %Y - %H:%M:%S %P'});
-    
+    $('.tgl').mask("99-99-9999").datepicker({
+        dateFormat: 'dd-mm-yy',
+        yearRange: "-20:+10",
+        buttonImage: 'assets/images/cal_icon.png',
+        buttonImageOnly: true,
+        showOn: 'button',
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true
+   });
     //---- Inisialisasi
     $("#tab-utama").tabs();
     $('#bmtsave').click(function() {
@@ -139,7 +148,111 @@ $(document).ready(function(){
         });
         warnatable();
     });
-
+    // tahun buku
+    $("#table_tahunbuku").mastertable({
+        urlGet:"param/bmt/get_tahunbuku",
+        flook:"nama_tahun"
+    },
+    function(hal,juml,json) {
+        var isi="";
+        for(i = 0; i < json['alldata'].length; i++) {
+            idx = "t" + json['alldata'][i].tahunbuku_id;
+            dtx = json['alldata'][i];
+            jSimpan(idx,dtx);
+            var status = (json['alldata'][i].active == '1') ? "ACTIVE" : "";
+            managejab = "<img class=\"chpsa\" title=\"Hapus\" src=\"assets/images/delicon.png\"/>&nbsp;&nbsp;&nbsp;<img  class=\"cedta\" title=\"Edit\" src=\"assets/images/editicon.png\"/>";
+            isi += "<tr style=\"vertical-align:top;\">"
+                + "<td align=\"center\">" + (((hal - 1) * juml ) + (i + 1)) + "</td>"
+                + "<td align=\"center\">" + json['alldata'][i].nama_tahun + "</td>"
+                + "<td align=\"center\">" + revDate(json['alldata'][i].tgl_mulai,'-') + "</td>"
+                + "<td align=\"center\">" + revDate(json['alldata'][i].tgl_akhir,'-') + "</td>"
+                + "<td align=\"center\">" + status + "</td>"
+                + "<td nowrap=\"nowrap\" align=\"center\">" + managejab + "</td>"
+                + "<td align=\"center\">" + json['alldata'][i].tahunbuku_id + "</td>"
+                + "</tr>";
+        }
+        return isi;
+    },
+    function domIsi() {
+        //---- Hapus
+        $('.chpsa').click( function() {
+            $(".infonya").hide();
+            obj = jAmbil("t" + $(this).parent().next().text());
+            $('.phps').html(obj.nama_tahun);
+            jSimpan("idx",obj.tahunbuku_id);
+            $('#dialog-hapus-tahunbuku').dialog('option', 'title',  'Hapus Tahun Buku' ).dialog('open');
+            return false;
+        });
+        //---- Edit
+        $('.cedta').click( function() {
+            $(".infonya").hide();
+            obj = jAmbil("t" + $(this).parent().next().text());
+            $('#form_tahunbuku input:eq(0)').val(obj.nama_tahun);
+            $('#form_tahunbuku input:eq(1)').val(revDate(obj.tgl_mulai,'-'));
+            $('#form_tahunbuku input:eq(2)').val(revDate(obj.tgl_akhir,'-'));
+            if (obj.active == "0") {
+                $('#form_tahunbuku input:eq(3)').removeAttr('checked');
+            } else {
+                $('#form_tahunbuku input:eq(3)').attr('checked','checked');
+            }
+            jSimpan("idx",obj.tahunbuku_id);
+            $('#dialog-tahunbuku').dialog('option', 'title',  'Edit Tahun Buku' ).dialog('open');
+            return false;
+        });
+        warnatable();
+    });
+    $('#addtahunbuku').click(function() {
+        $(".infonya").hide();
+        $('.inp').val('');
+        $('#dialog-tahunbuku').dialog('option', 'title',  'Tambah Tahun Buku' ).dialog('open');
+        return false;
+     });
+    $('#dialog-tahunbuku').dialog({autoOpen: false,width: 400,modal: true,
+        buttons: {
+                    "Ok": function() {
+                        hasil = validform("form_tahunbuku");
+                        if (hasil['isi'] != "invalid") {
+                            if ($('#dialog-tahunbuku').dialog('option', 'title') == "Tambah Tahun Buku") {
+                                respon = ajak("param/bmt/saveTahunBuku",$('#form_tahunbuku').serialize() + "&active=" + $("#CTBaktif:checked").length);
+                            } else {
+                                respon = ajak("param/bmt/editTahunBuku",$('#form_tahunbuku').serialize() + "&active=" + $("#CTBaktif:checked").length + "&id=" + jAmbil("idx"));
+                            }
+                            if (respon == "1") {
+                                $(this).dialog("close");
+                                $("#table_tahunbuku .reset").click();
+                            } else if (respon == "1062") {
+                                showinfo("Error : Nama tahun sudah ada");
+                            } else {
+                                showinfo("Error : " + respon);
+                            }
+                        } else {
+                            showinfo("Form dengan tanda * harus Diisi");
+                            hasil['focus'].focus();
+                        }
+                    },
+                    "Batal": function() {
+                        $(this).dialog('close');
+                    }
+    			 }
+     });
+    $('#dialog-hapus-tahunbuku').dialog({autoOpen: false,width: 400,modal: true,
+        buttons: {
+                    "Ok": function() {
+                        respon = ajak("param/bmt/delTahunBuku","id=" + jAmbil("idx"));
+                        if (respon == "1") {
+                            $("#table_tahunbuku .reset").click();;
+                            $(this).dialog('close');
+                        } else if (respon == "1451") {
+                            showinfo("Error : Tahun Buku Digunakan");
+                        } else {
+                            showinfo("Error : " + respon);
+                        }
+                    },
+                    "Batal": function() {
+                        $(this).dialog('close');
+                    }
+				 }
+     });
 /*
  *  ----------------------- RESET -------------------------------
  */

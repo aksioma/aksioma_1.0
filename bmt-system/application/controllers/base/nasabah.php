@@ -47,8 +47,9 @@ class Nasabah extends Controller {
         $cabang = $data[0]["kode"];
         
         $num = $this->db->count_all_results('tb_nasabah') + 1;
-        $paddedNum = sprintf("%06d", $num);
-        echo  $cabang."".$paddedNum;
+        $paddedNum = sprintf("%03d", $num);
+        
+        echo  $cabang."".date('m')."".date('y')."".$paddedNum;
     }
     function cab_code()
     {

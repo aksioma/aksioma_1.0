@@ -141,7 +141,7 @@ $(document).ready(function(){
                 		 + "<td style=\"border-top:1px solid #000\" align=\"left\">"+ json['alldata'][i].grouptabungan_nama +"</td>" 
                 		 + "<td style=\"border-top:1px solid #000\" align=\"left\">"+ json['alldata'][i].nama_pegawai +"</td>" 
                 		 + "<td style=\"border-top:1px solid #000\" align=\"center\">"+ revDate(json['alldata'][i].tgl_dibuka,'-') +"</td>" 
-                		 + "<td style=\"border-top:1px solid #000\" align=\"left\">"+ json['alldata'][i].alamat +"</td>" 
+                		 + "<td style=\"border-top:1px solid #000\" align=\"left\">"+ json['alldata'][i].alamat +" "+ json['alldata'][i].rtrw +"</td>" 
                 		 + "<td style=\"border-top:1px solid #000\" align=\"left\">"+ kab +"</td>" 
                 		 + "<td style=\"border-top:1px solid #000\" align=\"right\">"+ format_uang(saldo) +"</td>" 
                 		 + "</tr>";

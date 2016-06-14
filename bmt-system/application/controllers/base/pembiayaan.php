@@ -148,7 +148,7 @@ class Pembiayaan extends Controller {
         if($query->num_rows() > 0) {
             $data = $query->result_array();
             $minggu = 6;
-            if(($data[0]['harga_pokok'] !="")||($data[0]['harga_pokok'] != 0)){
+            if(($data[0]['harga_pokok'] != 0)||($data[0]['harga_pokok'] != 0)){
                 $pokok = $data[0]['harga_pokok'] / $data[0]['lama_angsuran'];
                 $margin = $data[0]['marjin'] / $data[0]['lama_angsuran'];
                 $jumlah = $pokok + $margin;
@@ -170,7 +170,34 @@ class Pembiayaan extends Controller {
                     $data1['update_by'] = $this->session->userdata('username');
                     $this->master->simpan('tb_pembiayaandetail',$data1);
                 }
+            }elseif(($data[0]['modal'] != 0)){
+            	$nisbah_bank = $data[0]['nisbah_bank'];
+                $nisbah_nasabah = $data[0]['nisbah_nasabah'];
+                $modal = $data[0]['modal'];
+                
+                $pokok = $modal / $data[0]['lama_angsuran'];
+                $margin = 0;
+                $jumlah = $pokok + $margin;
+                for($i=0;$i < $data[0]['lama_angsuran'];$i++){
+	                if($data[0]['type_angsuran'] == "HARI"){
+		                $dateangs = $this->authlib->getNextBillDay($data[0]['mulai_angsuran'],$i);
+	                }elseif($data[0]['type_angsuran'] == "MINGGU"){
+		                $dateangs = $this->authlib->getNextBillMinggu($data[0]['mulai_angsuran'],$minggu);
+		                $minggu += 7;
+	                }elseif($data[0]['type_angsuran'] == "BULAN"){
+		                $dateangs = $this->authlib->getNextBillDate($data[0]['mulai_angsuran'],$i);
+	                }
+                    $data1['id_pembiayaan'] = $id_pembiayaan;
+                    $data1['tgl_angsuran'] = $dateangs;
+                    $data1['pokok'] = $pokok;
+                    $data1['margin'] = $margin;
+                    $data1['jumlah'] = $jumlah;
+                    $data1['create_by'] = $this->session->userdata('username');
+                    $data1['update_by'] = $this->session->userdata('username');
+                    $this->master->simpan('tb_pembiayaandetail',$data1);
+                }
             }
+            
         }
         
     }

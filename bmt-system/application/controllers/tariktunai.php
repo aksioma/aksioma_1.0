@@ -69,10 +69,11 @@ class Tariktunai extends Controller {
     {
         $data           = $this->allfunct->securePost();
         $no_rekening	= $data['id'];
-        $query = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE accounttrans_listid='203' AND accounttrans_user='".$no_rekening."' and accounttrans_type='01'");
+        $id_jurnal		= $data['id_jurnal'];
+        $query = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE accounttrans_listid='".$id_jurnal."' AND accounttrans_user='".$no_rekening."' and accounttrans_type='01'");
         $data = $query->result_array();
         if($query->num_rows() > 0) {
-            $query1 = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE accounttrans_listid='203' AND accounttrans_user='".$no_rekening."' and accounttrans_type='02'");
+            $query1 = $this->db->query("SELECT sum(accounttrans_value) as jlh FROM tb_accounttrans WHERE accounttrans_listid='".$id_jurnal."' AND accounttrans_user='".$no_rekening."' and accounttrans_type='02'");
             $data1 = $query1->result_array();
             $jlh = ($data[0]["jlh"] * 1) - ($data1[0]["jlh"] * 1);
             echo $jlh;
@@ -99,6 +100,7 @@ class Tariktunai extends Controller {
 	        $data1['create_date'] = date("Y-m-d H:i:s");
 	        $data1['create_by'] = $this->session->userdata('username');
 	        $data1['update_by'] = $this->session->userdata('username');
+	        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
 	        
 	        $data2['accounttrans_listid'] = $data['id_jurnal'];
 	        $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
@@ -110,6 +112,7 @@ class Tariktunai extends Controller {
 	        $data2['create_date'] = date("Y-m-d H:i:s");
 	        $data2['create_by'] = $this->session->userdata('username');
 	        $data2['update_by'] = $this->session->userdata('username');
+	        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
 	        
 	        $nomor_jurnal= $data['nomor_jurnal'];
 	        $nomor_ref= $data['nomor_ref'];

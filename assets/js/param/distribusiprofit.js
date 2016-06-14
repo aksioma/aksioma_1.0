@@ -17,7 +17,7 @@ $(document).ready(function(){
                     "Ok": function() {
                         hasil = validform("form_perhimpunan");
                         if (hasil['isi'] != "invalid") {
-                            if ($('#dialog-perhimpunan').dialog('option', 'title') == "Tambah perhimpunan akun") {
+                            if ($('#dialog-perhimpunan').dialog('option', 'title') == "Tambah perhimpunan dana") {
                                 respon = ajak("param/distribusiprofit/saveperhimpunan",$('#form_perhimpunan').serialize());
                             } else {
                                 respon = ajak("param/distribusiprofit/editperhimpunan",$('#form_perhimpunan').serialize() + "&id=" + jAmbil("idx"));
@@ -45,7 +45,7 @@ $(document).ready(function(){
         $('.inp').val('');
         isi = ajak('param/listakun/isi_akun1');
         $("#jurnal1").html(isi);
-        $('#dialog-perhimpunan').dialog('option', 'title',  'Tambah perhimpunan akun' ).dialog('open');
+        $('#dialog-perhimpunan').dialog('option', 'title',  'Tambah perhimpunan dana' ).dialog('open');
         return false;
      });
     $('#dialog-hapus-perhimpunan').dialog({autoOpen: false,width: 400,modal: true,
@@ -75,7 +75,7 @@ $(document).ready(function(){
             idx = "h" + json['alldata'][i].perhimpunan_id;
             dtx = json['alldata'][i];
             jSimpan(idx,dtx);
-            managejab = "<img class=\"chpsm\" title=\"Hapus\" src=\"assets/images/delicon.png\"/>&nbsp;&nbsp;&nbsp;<img  class=\"cedth\" title=\"Edit\" src=\"assets/images/editicon.png\"/>";
+            managejab = "<img class=\"chpsm\" title=\"Hapus\" src=\"assets/images/delicon.png\"/>&nbsp;&nbsp;&nbsp;<img  class=\"cedth1\" title=\"Edit\" src=\"assets/images/editicon.png\"/>";
             isi += "<tr style=\"vertical-align:top;\">"
                 + "<td align=\"center\">" + (((hal - 1) * juml ) + (i + 1)) + "</td>"
                 + "<td align=\"left\">" + json['alldata'][i].kelompok + "</td>"
@@ -94,11 +94,11 @@ $(document).ready(function(){
             obj = jAmbil("h" + $(this).parent().next().text());
             $('.phps').html(obj.nama_produk);
             jSimpan("idx",obj.perhimpunan_id);
-            $('#dialog-hapus-perhimpunan').dialog('option', 'title',  'Hapus perhimpunan akun' ).dialog('open');
+            $('#dialog-hapus-perhimpunan').dialog('option', 'title',  'Hapus perhimpunan dana' ).dialog('open');
             return false;
         });
         //---- Edit
-        $('.cedth').click( function() {
+        $('.cedth1').click( function() {
             $(".infonya").hide();
             obj = jAmbil("h" + $(this).parent().next().text());
             $('#form_perhimpunan .inp:eq(0)').val(obj.kelompok);
@@ -107,7 +107,7 @@ $(document).ready(function(){
             $("#form_perhimpunan select[name='akun']").html(isi);
             $("#form_perhimpunan select[name='akun']").val(obj.akun);
             jSimpan("idx",obj.perhimpunan_id);
-            $('#dialog-perhimpunan').dialog('option', 'title',  'Edit perhimpunan akun' ).dialog('open');
+            $('#dialog-perhimpunan').dialog('option', 'title',  'Edit perhimpunan dana' ).dialog('open');
             return false;
         });
         warnatable();
