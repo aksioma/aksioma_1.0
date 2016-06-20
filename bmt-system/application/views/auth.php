@@ -54,11 +54,11 @@
           </div>
         </div>
       </div>
-       <div class="control-group">
+       <!-- <div class="control-group">
         <div class="controls">
           <select class="input-large" id="cabang" nama="cabang"></select>
         </div>
-      </div>
+      </div> -->
       <div class="control-group remember-me">
         <div class="controls">
           <label class="checkbox">

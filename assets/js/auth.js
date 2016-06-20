@@ -13,8 +13,8 @@ if (top.location!= self.location) {
 }
 
 $(document).ready(function(){
-	isi = ajak('auth/isi_cabang');
-    $("#cabang").html(isi);
+	//isi = ajak('auth/isi_cabang');
+    //$("#cabang").html(isi);
     $('.inp:eq(0)').val('').focus();
 	$(".inp").focus(function(e) {
         //domKey($(this).attr('name'));

@@ -33,6 +33,7 @@ class Cetaktabungan extends Controller {
         $this->load->view('setting/cetaktabungan',$data);
 	}
 	// conversi cm ke pixel 1 cm = 37.8 px => 1 cm = 10 mm
+	// font size ke pt
 	function editInfo()
 	{
 		$data = $this->allfunct->securePost();
@@ -44,7 +45,7 @@ class Cetaktabungan extends Controller {
 	{
 		$objord = $this->input->post('id');
 		$where = "";
-		$query = $this->db->query("SELECT set4,set5,set6,set7,set8,set9,set10,set11 FROM setting");
+		$query = $this->db->query("SELECT set4,set5,set6,set7,set8,set9,set10,set11,set12 FROM setting");
 		$data = $query->result_array();
 		$hasil['alldata'] = $data;
 		echo json_encode($hasil);

@@ -94,7 +94,7 @@ class Pencairanpembiayaan extends Controller {
         $data1['create_date'] = date("Y-m-d H:i:s");
         $data1['create_by'] = $this->session->userdata('username');
         $data1['update_by'] = $this->session->userdata('username');
-        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
+        //$data1['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data2['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -103,7 +103,7 @@ class Pencairanpembiayaan extends Controller {
         $data2['create_date'] = date("Y-m-d H:i:s");
         $data2['create_by'] = $this->session->userdata('username');
         $data2['update_by'] = $this->session->userdata('username');
-        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
+        //$data2['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data3['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
         $data3['accounttrans_code'] = $data['nomor_ref']." - ".$data['nomor_jurnal'];
@@ -112,7 +112,7 @@ class Pencairanpembiayaan extends Controller {
         $data3['create_date'] = date("Y-m-d H:i:s");
         $data3['create_by'] = $this->session->userdata('username');
         $data3['update_by'] = $this->session->userdata('username');
-        $data3['accounttrans_curency'] = $this->session->userdata('cbg');
+        //$data3['accounttrans_curency'] = $this->session->userdata('cbg');
         
         if($data['jenis_pembiayaan'] == "MURABAHAH"){
             //$data1['accounttrans_type'] = '01';

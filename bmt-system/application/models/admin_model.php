@@ -1114,7 +1114,7 @@ class Admin_model extends Model {
                                    		   $whr" );
         	$alldata['numrow'] = $query -> num_rows();
 		}
-		$query = $this -> db -> query( "SELECT t1.user_id,t1.username,t1.last_login,t1.from_host,t1.active,t2.pegawai_id,t2.nip,t2.nama_pegawai,t3.nama_group
+		$query = $this -> db -> query( "SELECT t1.id_group,t1.user_id,t1.username,t1.last_login,t1.from_host,t1.active,t2.pegawai_id,t2.nip,t2.nama_pegawai,t3.nama_group
 										FROM `users` AS t1
                                         INNER JOIN `pegawai` AS t2
                                         ON t1.id_pegawai = t2.pegawai_id

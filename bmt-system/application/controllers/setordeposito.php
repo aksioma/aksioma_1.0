@@ -72,7 +72,7 @@ class Setordeposito extends Controller {
         $data1['create_date'] = date("Y-m-d H:i:s");
         $data1['create_by'] = $this->session->userdata('username');
         $data1['update_by'] = $this->session->userdata('username');
-        $data1['accounttrans_curency'] = $this->session->userdata('cbg');
+        //$data1['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $data2['accounttrans_listid'] = $data['id_jurnal'];
         $data2['accounttrans_date'] = $this->allfunct->revDate($data['tgl_transaksi']);
@@ -86,7 +86,7 @@ class Setordeposito extends Controller {
         $data2['create_date'] = date("Y-m-d H:i:s");
         $data2['create_by'] = $this->session->userdata('username');
         $data2['update_by'] = $this->session->userdata('username');
-        $data2['accounttrans_curency'] = $this->session->userdata('cbg');
+        //$data2['accounttrans_curency'] = $this->session->userdata('cbg');
         
         $id_jurnal= $data['id_jurnal'];
         $nomor_ref= $data['nomor_ref'];

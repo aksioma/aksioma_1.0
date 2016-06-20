@@ -27,7 +27,8 @@ class Auth extends Controller {
 
     function login()
 	{
-		$login = array($this->input->post('username'), $this->input->post('password'), $this->input->post('cabang'));
+		//$login = array($this->input->post('username'), $this->input->post('password'), $this->input->post('cabang'));
+		$login = array($this->input->post('username'), $this->input->post('password'));
 		$resp = $this->authlib->login($login);
 		echo $resp;
 	}

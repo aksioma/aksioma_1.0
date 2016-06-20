@@ -107,17 +107,17 @@ class Authlib {
 	{
 		if(!isset($login))
 			return FALSE;
-		if(count($login) != 3)
+		if(count($login) != 2)
 			return FALSE;
 		$username = $login[0];
 		$pass = $login[1];
-		$cbg = $login[2];
+		//$cbg = $login[2];
 		$resp = $this->cekpass($username,$pass);
 		if (!is_object($resp)) 
 		{
 			return $resp;			
 		} else {
-			$this->CI->session->set_userdata('cbg', $cbg);
+			//$this->CI->session->set_userdata('cbg', $cbg);
 			$this->CI->session->set_userdata('user_id', $resp->user_id);
 			$this->CI->session->set_userdata('username', $resp->username);
             $this->CI->session->set_userdata('idpeg', $resp->pegawai_id);

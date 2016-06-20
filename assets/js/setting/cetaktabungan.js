@@ -29,6 +29,7 @@ $(document).ready(function(){
                 	$('.input-small:eq(5)').val(json['alldata'][i].set9);
                 	$('.input-small:eq(6)').val(json['alldata'][i].set10);
                 	$('.input-small:eq(7)').val(json['alldata'][i].set11);
+                	$('.input-small:eq(8)').val(json['alldata'][i].set12);
                 }
                 
             }, "json");

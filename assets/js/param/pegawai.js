@@ -143,7 +143,7 @@ $(document).ready(function(){
             $('#form_user input:eq(4)').val(obj.nama_pegawai);
             isi = ajak('param/user/isi_groups');
             $("#form_user select[name='id_group']").html(isi);
-            $("#form_user select[name='id_group']").val(obj.nama_group);
+            $("#form_user select[name='id_group']").val(obj.id_group);
             $('#form_user input:eq(6)').val(obj.pegawai_id);
             if (obj.active == "0") {
                 $('#form_user input:eq(5)').removeAttr('checked');

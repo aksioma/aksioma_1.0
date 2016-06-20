@@ -196,6 +196,12 @@
                                                             <input type="text" class="input-small" name="set11">
                                                         </div>
                                                     </div>
+                                                    <div class="control-group">
+                                                        <label class="control-label">Font Size</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="input-small" name="set12"> px
+                                                        </div>
+                                                    </div>
                                                     <div class="form-actions">
                                                         <button class="btn btn-primary" id="bmtsave"><i class="icon-ok"></i> Save</button>
                                                     </div>

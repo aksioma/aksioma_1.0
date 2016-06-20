@@ -24,7 +24,7 @@
 </style>
 <body>
 <div id="tlapcetak">
-	<table width="<?php if (isset($wth)) echo $wth;?>">
+	<table style="font-size:<?php if (isset($ft)) echo $ft;?>pt;font-family:verdana;" width="<?php if (isset($wth)) echo $wth;?>">
 		<thead>
 			<?php if (isset($sizetop)) echo $sizetop;?>
 		</thead>

@@ -55,7 +55,7 @@ class Cetaktabungan extends Controller {
     }
     function cetak()
 	{
-	$query = $this->db->query("SELECT set4,set5,set6,set7,set8,set9,set10,set11 FROM setting");
+	$query = $this->db->query("SELECT set4,set5,set6,set7,set8,set9,set10,set11,set12 FROM setting");
         $data = $query->result_array();
         if($query->num_rows() > 0) {
             $set4 = $data[0]["set4"]."";
@@ -66,11 +66,13 @@ class Cetaktabungan extends Controller {
             $set9 = $data[0]["set9"]."";
             $set10 = $data[0]["set10"]."cm";
             $set11 = $data[0]["set11"]."";
+            $set12 = $data[0]["set12"]."";
         }else{
         	$set4 = "";
         	$set5 = "";
         }
         $wth = 1 + $set4 + $set5 + $set6 + $set7 + $set8 + $set9;
+        $data['ft'] = $set12;
         $data['wth'] = $wth."%";
 		$data['sizetop'] = "<tr><td width='1%'>&nbsp;</td><td width='".$set4."%'>&nbsp;</td><td width='".$set5."%'>&nbsp;</td><td width='".$set6."%'>&nbsp;</td><td width='".$set7."%'>&nbsp;</td><td width='".$set8."%'>&nbsp;</td><td width='".$set9."%'>&nbsp;</td></tr>";
         $data['margin'] = "margin-left : 0.1cm; margin-top : ".$set10.";";
