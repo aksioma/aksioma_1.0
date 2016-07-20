@@ -130,11 +130,11 @@ class Pencairanpembiayaan extends Controller {
             $this->master->simpan('tb_accounttrans',$data3);
             
         }elseif(($data['jenis_pembiayaan'] == "MUDHARABAH")||($data['jenis_pembiayaan'] == "MUSYARAKAH")){
-            $data1['accounttrans_type'] = '02';
+            $data1['accounttrans_type'] = '01';
             $data1['accounttrans_value'] = $pokokmargin;
             
             $data2['accounttrans_listid'] = "19";
-            $data2['accounttrans_type'] = '01';
+            $data2['accounttrans_type'] = '02';
             $data2['accounttrans_value'] = $pokokmargin;
             
         }elseif($data['jenis_pembiayaan'] == "AL-QARDH"){

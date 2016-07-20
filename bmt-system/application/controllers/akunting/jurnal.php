@@ -13,6 +13,7 @@ class Jurnal extends Controller {
 	function __construct()
 	{
 		parent::Controller();
+		error_reporting(E_ALL & ~E_NOTICE);
         $this->authlib->cekcontr();
         $this->tema = $this->allfunct->getSetupapp('tema');
         $this->load->model('master_model','master');
