@@ -338,7 +338,8 @@ $(document).ready(function(){
             $("#form_pemb select[name='status']").val(obj.status);
             
             $("#form_pemb input[name='jumlah_pengajuan']").val(obj.jumlah_pengajuan);
-            
+            $("#form_pemb input[name='nomor_akad']").val(obj.nomor_akad);
+            $("#form_pemb input[name='tgl_akad']").val(revDate(obj.tgl_akad,'-'));
             
             var nameproduk = ajak('base/pembiayaan/produk_name','id='+obj.jenis_pembiayaan);
             if(nameproduk == "MURABAHAH"){

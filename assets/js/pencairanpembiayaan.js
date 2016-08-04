@@ -196,7 +196,7 @@ $(document).ready(function(){
             }else if(nameproduk == "AL-QARDH"){
                 plafon = obj.pinjaman;
             }else if(nameproduk == "MUSYARAKAH"){
-                plafon = obj.harga_pokok;
+                plafon = obj.modal;
             }
             $("#form_pencairanpembiayaan input[name='plafon']").val(format_uang(plafon));
             $("#form_pencairanpembiayaan input[name='margin']").val(format_uang(margin));
