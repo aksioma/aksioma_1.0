@@ -49,9 +49,9 @@ $(document).ready(function(){
                         mutasikredit = obj['alldata'][i].mutasi_kredit * 1;
                         totmutasidebet += mutasidebet;
                         totmutasikredit += mutasikredit;
-                        if(mutasidebet != 0){
+                        if(mutasidebet != null){
                         	totmutasisaldo -= mutasidebet;
-                        }else if(mutasikredit != 0){
+                        }else if(mutasikredit != null){
                         	totmutasisaldo += mutasikredit;
                         }
                         
