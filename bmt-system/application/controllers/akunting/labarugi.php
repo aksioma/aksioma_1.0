@@ -125,7 +125,7 @@ class Labarugi extends Controller {
         //$query = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS jlh FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
         //$data = $query->result_array();
         //return $data[0]["jlh"] * 1;
-        if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353") ||($id =="342")||($id =="343") ||($id == "325")||($id == "326")||($id == "327")||($id == "328")||($id == "329")||($id == "330") || ($id == "334")||($id == "335")||($id == "336")||($id == "337")||($id == "338")||($id == "339")){
+        if(($id =="349")||($id =="348")||($id =="350")||($id =="352")||($id =="353") ||($id =="342")||($id =="343") ||($id == "325")||($id == "326")||($id == "327")||($id == "328")||($id == "329")||($id == "330") || ($id == "334")||($id == "335")||($id == "336")||($id == "337")||($id == "338")||($id == "339")||($id == "448")||($id == "449")||($id == "450")||($id == "451")){
         	$query1 = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '02' THEN accounttrans_value END) AS jlh1 FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
         }else{
         	$query1 = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '01' THEN accounttrans_value END) AS jlh1 FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
@@ -133,6 +133,7 @@ class Labarugi extends Controller {
         $query2 = $this->db->query("SELECT SUM(CASE WHEN accounttrans_type like '02' THEN accounttrans_value END) AS jlh2 FROM tb_accounttrans WHERE accounttrans_listid=$id AND accounttrans_date BETWEEN '$tglawal' AND '$tglakhir'");
         $query3 = $this->db->query("SELECT listakun_pattern FROM coa_listakun WHERE listakun_id=$id");
         $data1 = $query1->result_array();
+        
         $data2 = $query2->result_array();
         $data3 = $query3->result_array();
         $item = substr($data3[0]["listakun_pattern"],0,2);
@@ -146,7 +147,7 @@ class Labarugi extends Controller {
         		$trans  = $data1[0]["jlh1"] * 1;
         	}
         }elseif($item == "6*"){
-        	$trans  = $data1[0]["jlh1"] * 1;
+        	$trans  = $data1[0]["jlh1"] * -1;
         }elseif($item == "7*"){
         	$trans  = $data2[0]["jlh2"] * 1;
         }else{
