@@ -157,15 +157,15 @@ class Angsuran extends Controller {
             $data3['accounttrans_listid'] = $data['gl_pendapatanbagihasil'];
             $data3['accounttrans_type'] = '01';
             $data3['accounttrans_value'] = $margin;
-            
+            /*
             $data4['accounttrans_listid'] = '19';
             $data4['accounttrans_type'] = '02';
             $data4['accounttrans_value'] = $margin;
-            
+            */
             $this->master->simpan('tb_accounttrans',$data1);
             $this->master->simpan('tb_accounttrans',$data2);
             $this->master->simpan('tb_accounttrans',$data3);
-            $this->master->simpan('tb_accounttrans',$data4);
+            //$this->master->simpan('tb_accounttrans',$data4);
         }elseif($data['jenis_pembiayaan'] == "AL-QARDH"){
             $data1['accounttrans_listid'] = "19";
             $data1['accounttrans_type'] = '02';
@@ -186,7 +186,7 @@ class Angsuran extends Controller {
         $this->master->simpan('tb_accounttemp',$data1);
         $this->master->simpan('tb_accounttemp',$data2);
         $this->master->simpan('tb_accounttemp',$data3);
-        $this->master->simpan('tb_accounttemp',$data4);
+        //$this->master->simpan('tb_accounttemp',$data4);
         
         $id = $data['nomor_jurnal'];
         $data5['status'] = '1';
