@@ -120,7 +120,7 @@ class Eoy extends Controller {
     		$shuB += $row->accounttrans_value;
     		$listakun_code = $row->listakun_code;
     		$listakun_id = $row->listakun_id;
-    		$data4['accounttrans_type'] = "02";
+    		$data4['accounttrans_type'] = "01";
     		$data4['accounttrans_listid'] = $listakun_id;
     		$data4['accounttrans_code'] = "EOY ".$row->accounttrans_code;
     		$data4['accounttrans_user'] = $row->accounttrans_user;
@@ -133,7 +133,7 @@ class Eoy extends Controller {
     		$this->master->simpan("tb_accounttrans",$data4);
     	}
     	/// data pendapatan LABA/RUGI TAHUN LALU
-    	$data5['accounttrans_type'] = "01";
+    	$data5['accounttrans_type'] = "02";
     	$data5['accounttrans_listid'] = "283";
     	$data5['accounttrans_code'] = "EOY-430.01.01";
     	$data5['accounttrans_user'] = "EOY";
