@@ -53,12 +53,24 @@ $(document).ready(function(){
         var produk =  $("#form_deposito select[name='nama_produk']").val();
         if(produk == "11"){
             $("#form_deposito input[name='jatuh_tempo']").val(isitglnext(1));
+            var count = ajak('base/deposito/run_code',"id="+ produk);
+            var cab = ajak('base/deposito/cab_code');
+            $("#form_deposito input[name='nomor_rekening']").val(produk+""+cab+""+count);
         }else if(produk == "12"){
             $("#form_deposito input[name='jatuh_tempo']").val(isitglnext(3));
+            var count = ajak('base/deposito/run_code',"id="+ produk);
+            var cab = ajak('base/deposito/cab_code');
+            $("#form_deposito input[name='nomor_rekening']").val(produk+""+cab+""+count);
         }else if(produk == "13"){
             $("#form_deposito input[name='jatuh_tempo']").val(isitglnext(6));
+            var count = ajak('base/deposito/run_code',"id="+ produk);
+            var cab = ajak('base/deposito/cab_code');
+            $("#form_deposito input[name='nomor_rekening']").val(produk+""+cab+""+count);
         }else if(produk == "14"){
             $("#form_deposito input[name='jatuh_tempo']").val(isitglnext(12));
+            var count = ajak('base/deposito/run_code',"id="+ produk);
+            var cab = ajak('base/deposito/cab_code');
+            $("#form_deposito input[name='nomor_rekening']").val(produk+""+cab+""+count);
         }
         return false;
     });

@@ -101,7 +101,12 @@ class Listakun extends Controller {
     }
     function saveakun()
     {
-        $data = $this->allfunct->securePost();
+    	$data = $this->allfunct->securePost();
+        $query = $this->db->query("SELECT listakun_pattern FROM coa_listakun WHERE listakun_id ='".$data['listakun_parent']."'");
+    	$data1 = $query->result_array();
+    	$data['listakun_pattern'] = $data1[0]["listakun_pattern"]."*".$data['listakun_parent'];
+    	$data['listakun_active'] = "1";
+    	$data['listakun_sign'] = "-1";
         echo $this->master->simpan('coa_listakun',$data);
     }
     function editakun()
