@@ -99,7 +99,8 @@ $autoload['helper'] = array('url','jsonwrapper/jsonwrapper');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('app','pagination');
+//$autoload['config'] = array('app','pagination');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------
