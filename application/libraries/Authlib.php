@@ -93,9 +93,9 @@ class Authlib {
     }
 	//--- group menu
     function getGroup($group_id)
-	{
+	{$dbname =  $this->CI->db->database;
 		if(($group_id != "0")||($group_id != "")){
-            $query = $this->CI->db->query("SELECT nama_group FROM bmt_v1.groups WHERE group_id = '$group_id'");
+            $query = $this->CI->db->query("SELECT nama_group FROM $dbname.groups WHERE group_id = '$group_id'");
             if ($query->num_rows() == 1) {
                 $hasil = $query->result();
                 return $hasil[0]->nama_group;
